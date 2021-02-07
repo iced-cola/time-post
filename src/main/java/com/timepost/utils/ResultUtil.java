@@ -9,7 +9,7 @@ import com.timepost.entity.ResponseEntity;
  * @description :  通用返回工具类
  * @since :  v1.0
  */
-public class ResultUtils {
+public class ResultUtil {
 
     public static <T> ResponseEntity<T> success(int code, String message, T data) {
         return new ResponseEntity<>(code, message, data);

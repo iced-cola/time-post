@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "mail.interval",
+      "type": "java.lang.Integer",
+      "description": "邮件发送时间间隔."
+    }
+  ]
+}

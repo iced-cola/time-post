@@ -23,4 +23,9 @@ public class Constant {
      */
     public static final int USER_MAX_MAIL_COUNT = 10;
 
+    /**
+     * 默认发件邮箱
+     */
+    public static final String MAIL_SENDER = "schedule@timepost.com";
+
 }

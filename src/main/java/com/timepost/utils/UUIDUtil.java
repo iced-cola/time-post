@@ -8,7 +8,7 @@ import java.util.UUID;
  * @description :  uuid工具类
  * @since :  v1.0
  */
-public class UUIDUtils {
+public class UUIDUtil {
 
     /**
      * 生成32位UUID
