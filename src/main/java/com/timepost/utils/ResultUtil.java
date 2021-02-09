@@ -19,6 +19,10 @@ public class ResultUtil {
         return new ResponseEntity<>(code, message);
     }
 
+    public static <T> ResponseEntity<T> success() {
+        return new ResponseEntity<T>(ResultEnum.SUCCESS);
+    }
+
     public static <T> ResponseEntity<T> success(ResultEnum resultEnum) {
         return new ResponseEntity<>(resultEnum);
     }

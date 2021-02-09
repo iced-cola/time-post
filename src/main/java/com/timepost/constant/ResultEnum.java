@@ -13,7 +13,11 @@ public enum ResultEnum {
 
     SUCCESS(0, "操作成功"),
 
-    FAIL(-1, "操作失败");
+    FAIL(-1, "操作失败"),
+
+    PARAM_ERROR(10, "参数错误"),
+
+    NO_PERMISSION(20, "权限不足");
 
     private final Integer code;
 
