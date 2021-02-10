@@ -1,8 +1,8 @@
 package com.timepost.service;
 
-import com.timepost.PostException;
 import com.timepost.entity.ResponseEntity;
 import com.timepost.entity.UserEntity;
+import com.timepost.entity.dto.UserDto;
 
 /**
  * @author :  zhulongkun20@gmail.com
@@ -18,7 +18,7 @@ public interface UserService {
      * @param userEntity 用户实体
      * @return 创建成功 or 创建失败
      */
-    ResponseEntity<String> createUser(UserEntity userEntity) throws PostException;
+    ResponseEntity<String> createUser(UserEntity userEntity);
 
     /**
      * 登录处理
@@ -31,10 +31,10 @@ public interface UserService {
     /**
      * 修改密码
      *
-     * @param userEntity 用户信息
+     * @param userDto 用户信息
      * @return 修改成功 or 修改失败
      */
-    ResponseEntity<Object> changePassword(UserEntity userEntity);
+    ResponseEntity<Object> changePassword(UserDto userDto);
 
     /**
      * 删除用户

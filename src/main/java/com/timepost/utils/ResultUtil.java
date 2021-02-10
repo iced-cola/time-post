@@ -20,7 +20,7 @@ public class ResultUtil {
     }
 
     public static <T> ResponseEntity<T> success() {
-        return new ResponseEntity<T>(ResultEnum.SUCCESS);
+        return new ResponseEntity<>(ResultEnum.SUCCESS);
     }
 
     public static <T> ResponseEntity<T> success(ResultEnum resultEnum) {

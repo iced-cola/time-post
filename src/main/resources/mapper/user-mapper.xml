@@ -20,4 +20,60 @@
     <sql id="Base_Column_List">
         `id`, user_id, `role`, username, `password`, mail_address, signature, last_login
     </sql>
+
+    <insert id="insert" parameterType="com.timepost.entity.UserEntity">
+        <selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE"
+                   keyColumn="id">
+            select replace(uuid(), '-', '') as id from dual
+        </selectKey>
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">id,</if>
+            <if test="userId != null and userId != ''">user_id,</if>
+            <if test="role != null and role != ''">`role`,</if>
+            <if test="username != null and username != ''">username,</if>
+            <if test="password != null and password != ''">`password`,</if>
+            <if test="mailAddress != null and mailAddress != ''">mail_address,</if>
+            <if test="signature != null and signature != ''">signature,</if>
+            <if test="lastLogin != null and lastLogin != ''">last_login,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">#{id},</if>
+            <if test="userId != null and userId != ''">#{userId},</if>
+            <if test="role != null and role != ''">#{role},</if>
+            <if test="username != null and username != ''">#{username},</if>
+            <if test="password != null and password != ''">#{password},</if>
+            <if test="mailAddress != null and mailAddress != ''">#{mailAddress},</if>
+            <if test="signature != null and signature != ''">#{signature},</if>
+            <if test="lastLogin != null and lastLogin != ''">#{lastLogin},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+        </trim>
+    </insert>
+
+    <update id="updateUserPassword" parameterType="java.lang.String">
+        update t_user
+        set `password` = #{newPassword}
+        where user_id = #{userId}
+    </update>
+
+    <delete id="deleteByUserId" parameterType="java.lang.String">
+        delete
+        from t_user
+        where user_id = #{userId}
+    </delete>
+
+    <select id="selectByUserId" resultType="com.timepost.entity.UserEntity">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+        where user_id = #{userId}
+    </select>
 </mapper>
