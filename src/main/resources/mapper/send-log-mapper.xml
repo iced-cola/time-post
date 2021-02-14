@@ -15,4 +15,26 @@
     <sql id="Base_Column_List">
         `id`, mail_id, send_result
     </sql>
+
+    <insert id="insert" parameterType="com.timepost.entity.SendLogEntity">
+        <selectKey keyColumn="id" order="BEFORE" resultType="java.lang.String" keyProperty="id">
+            select replace(uuid(), '-', '') from dual as id
+        </selectKey>
+        insert into t_send_log
+        <trim suffixOverrides="," prefix="(" suffix=")">
+            <if test="id != null and id != ''">id,</if>
+            <if test="mailId != null and mailId != ''">mail_id,</if>
+            <if test="sendResult != null and sendResult != ''">send_result,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">id,</if>
+            <if test="mailId != null and mailId != ''">mailId,</if>
+            <if test="sendResult != null and sendResult != ''">sendResult,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+        </trim>
+    </insert>
 </mapper>

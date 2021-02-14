@@ -60,10 +60,53 @@
         </trim>
     </insert>
 
+    <update id="update" parameterType="com.timepost.entity.MailEntity">
+        update t_mail
+        <set>
+            <if test="receiver != null and receiver != ''">
+                receiver = #{receiver}
+            </if>
+            <if test="subject != null and subject != ''">
+                `subject` = #{subject}
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content}
+            </if>
+            <if test="sendDate != null">
+                send_date = #{sendDate}
+            </if>
+            <if test="isPublic != null and isPublic != ''">
+                is_public = #{isPublic}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime}
+            </if>
+        </set>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        delete
+        from t_mail
+        where id = #{id}
+    </delete>
+
     <select id="selectBySendDate" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from t_mail
         where send_date = #{sendDate}
+    </select>
+
+    <select id="selectByUserId" parameterType="java.lang.String"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_mail
+        where user_id = #{userId}
     </select>
 </mapper>

@@ -2,6 +2,7 @@ package com.timepost.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  * @since :  v1.0
  */
 @Data
-public class BaseEntity {
+public class BaseEntity implements Serializable {
 
     /**
      * 创建者

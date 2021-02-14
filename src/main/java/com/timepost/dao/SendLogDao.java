@@ -1,5 +1,6 @@
 package com.timepost.dao;
 
+import com.timepost.entity.SendLogEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,4 +11,13 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface SendLogDao {
+
+    /**
+     * 新增发送记录
+     *
+     * @param sendLogEntity entity
+     * @return result
+     */
+    int insert(SendLogEntity sendLogEntity);
+
 }

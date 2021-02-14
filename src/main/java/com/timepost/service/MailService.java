@@ -2,6 +2,7 @@ package com.timepost.service;
 
 import com.timepost.entity.MailEntity;
 import com.timepost.entity.ResponseEntity;
+import com.timepost.entity.SendLogEntity;
 
 /**
  * @author :  zhulongkun20@gmail.com
@@ -30,10 +31,10 @@ public interface MailService {
     /**
      * 删除待发送邮件
      *
-     * @param mailEntity 邮件信息
+     * @param id 邮件id
      * @return 处理结果
      */
-    ResponseEntity<Object> delete(MailEntity mailEntity);
+    ResponseEntity<Object> delete(String id);
 
     /**
      * 取消发送待发送邮件
@@ -50,5 +51,13 @@ public interface MailService {
      * @return 该用户的邮件列表（含已发送|已取消发送邮件）
      */
     ResponseEntity<Object> listMyEmail(String userId);
+
+    /**
+     * 记录邮件发送结果
+     *
+     * @param logEntity 发送日志
+     * @return 日志记录
+     */
+    ResponseEntity<Object> createLog(SendLogEntity logEntity);
 
 }

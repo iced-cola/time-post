@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author :  zhulongkun20@gmail.com
  * @create :  02-05-2021 22:46:49
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SendLogEntity extends BaseEntity {
+public class SendLogEntity extends BaseEntity implements Serializable {
 
     /**
      * 主键id
